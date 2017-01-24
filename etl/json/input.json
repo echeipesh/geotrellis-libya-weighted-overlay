@@ -4,7 +4,7 @@
     "format": "geotiff",
     "backend": {
       "type": "hadoop",
-      "path": "file:///Users/rob/proj/rb/libya-weighted-overlay/data/Acled/Conflict_Data_Acled.tif"
+      "path": "file:///Users/eugene/proj/geotrellis-libya-weighted-overlay/data/acled.tif"
     },
     "cache": "NONE"
   },
@@ -13,7 +13,7 @@
     "format": "geotiff",
     "backend": {
       "type": "hadoop",
-      "path": "file:///Users/rob/proj/rb/libya-weighted-overlay/data/Oil_Pipeline/Buffed_EDIS.tif"
+      "path": "file:///Users/eugene/proj/geotrellis-libya-weighted-overlay/data/oil_pipeline.tif"
     },
     "cache": "NONE"
   }

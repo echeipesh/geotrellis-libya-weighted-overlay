@@ -1,7 +1,7 @@
 {
   "backend": {
-    "type": "file",
-    "path": "/Users/rob/proj/rb/libya-weighted-overlay/data/catalog"
+    "type": "s3",
+    "path": "s3://geotrellis-test/rb/libya/raster"
   },
   "reprojectMethod": "buffered",
   "pyramid": true,

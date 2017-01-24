@@ -8,6 +8,8 @@ import geotrellis.vector.io.json._
 
 import spray.json._
 import DefaultJsonProtocol._
+import com.typesafe.config.{Config, ConfigFactory}
+import java.net.URI
 
 case class AirStrike(strikes: Int)
 
@@ -144,10 +146,15 @@ object VectorLayers {
         bufferTile(tile, weight, d.toInt, buffered, rasterExtent)
     }
 
-  def read(fname: String): String =
-    scala.io.Source.fromFile(s"/opt/data/catalog/$fname", "UTF-8")
-      .getLines
-      .mkString
+  val vectorCatalogUri: URI = {
+    val config = ConfigFactory.load()
+    new URI(config.getString("catalog.vector.uri"))
+  }
+
+  def read(fname: String): String = {
+    val fileUri = vectorCatalogUri.resolve(fname)
+    Util.readString(fileUri)
+  }
 
   val libya: MultiPolygon =
     read("Libya_shape.geojson")
