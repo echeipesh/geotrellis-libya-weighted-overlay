@@ -30,8 +30,11 @@ lazy val commonSettings = Seq(
     "com.google.guava" % "guava" % "16.0.1"
   ) map  { _ exclude("com.google.guava", "guava") },
   assemblyMergeStrategy in assembly := {
+    case str if str.toUpperCase.contains("LICENSE") => MergeStrategy.discard
     case "reference.conf" => MergeStrategy.concat
     case "application.conf" => MergeStrategy.concat
+    case "META-INF/LICENSE" => MergeStrategy.discard
+    case "META-INF/LICENSE.txt" => MergeStrategy.discard
     case "META-INF/MANIFEST.MF" => MergeStrategy.discard
     case "META-INF\\MANIFEST.MF" => MergeStrategy.discard
     case "META-INF/ECLIPSEF.RSA" => MergeStrategy.discard
