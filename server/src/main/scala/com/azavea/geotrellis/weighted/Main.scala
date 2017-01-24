@@ -27,7 +27,12 @@ object Main {
 
   val config = ConfigFactory.load()
   val staticPath = config.getString("geotrellis.server.static-path")
-  val port = config.getInt("geotrellis.port")
+  val port =
+    if (config.hasPath("geotrellis.port"))
+      config.getInt("geotrellis.port")
+    else
+      8777
+
   val host = config.getString("geotrellis.hostname")
 
   def main(args: Array[String]): Unit = {
