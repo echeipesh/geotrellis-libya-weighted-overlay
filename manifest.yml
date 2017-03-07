@@ -3,6 +3,5 @@ applications:
 - name: libya-weighted-overlay
   memory: 1G
   random-route: true
-  path: server/target/scala-2.11/libya-weighted-overlay-server-assembly-0.1.0.jar
-  java_main_class: com.azavea.geotrellis.weighted.Main
+  path: server/target/universal/libya-weighted-overlay-server-0.1.0.zip
   buildpack: java-buildpack-offline_new

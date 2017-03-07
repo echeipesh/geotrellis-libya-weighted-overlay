@@ -21,13 +21,14 @@ import akka.actor.Props
 import akka.io.IO
 import com.typesafe.config.ConfigFactory
 import spray.can.Http
+import util.Properties
 
 
 object Main {
 
   val config = ConfigFactory.load()
   val staticPath = config.getString("geotrellis.server.static-path")
-  val port =
+    val port =
     if (config.hasPath("geotrellis.port"))
       config.getInt("geotrellis.port")
     else
@@ -49,6 +50,6 @@ object Main {
     }
 
     // start a new HTTP server on port 8080 with our service actor as the handler
-    IO(Http) ! Http.Bind(service, host, port)
+    IO(Http) ! Http.Bind(service, "0.0.0.0", port)
   }
 }

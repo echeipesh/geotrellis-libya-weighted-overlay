@@ -1,5 +1,7 @@
 import scala.util.Properties
 
+scalaVersion := "2.11.8"
+
 lazy val commonSettings = Seq(
   organization := "com.azavea.geotrellis",
   version := "0.1.0",
@@ -25,7 +27,7 @@ lazy val commonSettings = Seq(
     "org.apache.spark"  %% "spark-core"    % "2.0.1",
     "io.spray"          %% "spray-routing" % "1.3.3",
     "io.spray"          %% "spray-can"     % "1.3.3",
-    "org.apache.hadoop"  % "hadoop-client" % "2.7.1",    
+    "org.apache.hadoop"  % "hadoop-client" % "2.7.1",
     "org.locationtech.geotrellis" %% "geotrellis-spark" % Version.gtVersion,
     "com.google.guava" % "guava" % "16.0.1"
   ) map  { _ exclude("com.google.guava", "guava") },

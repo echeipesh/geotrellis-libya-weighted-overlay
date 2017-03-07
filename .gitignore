@@ -30,3 +30,4 @@ data/catalog/conflict
 data/catalog/attributes
 deployment/*.tfstate
 deployment/*.tfstate.backup
+.ensime*
