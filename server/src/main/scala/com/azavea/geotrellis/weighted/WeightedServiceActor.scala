@@ -58,10 +58,10 @@ class WeightedServiceActor(staticPath: String, dataModel: DataModel)
       path("breaks")(breaks)
     } ~
     pathEndOrSingleSlash {
-      getFromFile(staticPath + "/index.html")
+      getFromResource("static/index.html")
     } ~
     pathPrefix("") {
-      getFromDirectory(staticPath)
+      getFromResourceDirectory("static")
     }
 
   def colors = complete(ColorRampMap.getJson)
